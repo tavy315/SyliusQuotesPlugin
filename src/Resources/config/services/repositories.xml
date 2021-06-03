@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="tavy315_sylius_quotes.repository.customer_quote" class="Tavy315\SyliusQuotesPlugin\Repository\CustomerQuoteRepository" />
+
+        <service id="Tavy315\SyliusQuotesPlugin\Repository\CustomerQuoteRepositoryInterface" alias="tavy315_sylius_quotes.repository.customer_quote" />
+
+        <service id="tavy315_sylius_quotes.repository.product" class="Tavy315\SyliusQuotesPlugin\Repository\ProductRepository">
+            <argument type="service" id="sylius.repository.product" />
+        </service>
+
+        <service id="Tavy315\SyliusQuotesPlugin\Repository\ProductRepositoryInterface" alias="tavy315_sylius_quotes.repository.product" />
+    </services>
+</container>

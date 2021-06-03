@@ -1,0 +1,15 @@
+tavy315_sylius_quotes_shop_account_quote_index:
+    path: /
+    methods: [GET]
+    defaults:
+        _controller: tavy315_sylius_quotes.controller.customer_quote:indexAction
+        _sylius:
+            section: shop_account
+            template: "@Tavy315SyliusQuotesPlugin/Account/CustomerQuote/Grid/index.html.twig"
+            grid: tavy315_sylius_quotes_shop_account_quote
+
+tavy315_sylius_quotes_shop_account_quote_products:
+    path: /{document}
+    methods: [GET]
+    defaults:
+        _controller: tavy315_sylius_quotes.controller.action.list_quote_products

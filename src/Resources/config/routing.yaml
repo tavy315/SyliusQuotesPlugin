@@ -1,0 +1,7 @@
+tavy315_sylius_quotes_admin_api:
+    prefix: /api/v{version}
+    resource: routing/admin_api.yaml
+
+tavy315_sylius_quotes_shop:
+    prefix: /account/quotes
+    resource: routing/shop.yaml

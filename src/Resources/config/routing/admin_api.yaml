@@ -1,0 +1,38 @@
+tavy315_sylius_quotes_admin_api_customer_quote:
+    resource: |
+        alias: tavy315_sylius_quotes.customer_quote
+        criteria:
+            customer: $customer
+        form: Tavy315\SyliusQuotesPlugin\Form\Type\CustomerQuoteType
+        grid: tavy315_sylius_quotes_admin_customer_quote
+        identifier: documentNo
+        only: [create, update]
+        path: 'customers/{customer}/quotes'
+        section: admin_api
+        serialization_version: $version
+        vars:
+            route:
+                parameters:
+                    customer: $customer
+                    documentNo: $documentNo
+    type: sylius.resource_api
+
+tavy315_sylius_quotes_admin_api_customer_quote_update:
+    path: /customers/{customer}/quotes/{documentNo}
+    methods: [ PATCH, PUT ]
+    defaults:
+        _controller: "tavy315_sylius_quotes.controller.customer_quote:updateAction"
+        _sylius:
+            criteria:
+                customer: $customer
+                documentNo: $documentNo
+            factory:
+                method: createForCustomerAndDocument
+                arguments:
+                    - expr:service('sylius.repository.customer').findOneById($customer)
+                    - $documentNo
+            repository:
+                method: findOneByCustomerAndDocument
+                arguments:
+                    - expr:service('sylius.repository.customer').findOneById($customer)
+                    - $documentNo
