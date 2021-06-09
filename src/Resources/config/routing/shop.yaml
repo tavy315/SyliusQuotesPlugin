@@ -8,7 +8,7 @@ tavy315_sylius_quotes_shop_account_quote_index:
             template: "@Tavy315SyliusQuotesPlugin/Account/CustomerQuote/Grid/index.html.twig"
             grid: tavy315_sylius_quotes_shop_account_quote
 
-tavy315_sylius_quotes_shop_account_quote_products:
+tavy315_sylius_quotes_shop_account_quote_show:
     path: /{document}
     methods: [GET]
     defaults:

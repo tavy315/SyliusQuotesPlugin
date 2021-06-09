@@ -1,0 +1,5 @@
+<div class="ui five column stackable grid" id="quote-products">
+    {% for product in products %}
+        {% include '@Tavy315SyliusQuotesPlugin/Account/CustomerQuote/Grid/_product.html.twig' with {'product': product} %}
+    {% endfor %}
+</div>

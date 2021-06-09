@@ -1,10 +1,15 @@
 imports:
     - { resource: "@Tavy315SyliusQuotesPlugin/Resources/config/app/grids.yaml" }
 
+parameters:
+    tavy315_sylius_quotes_product_limit: null
+
 services:
     tavy315_sylius_quotes.context.quote:
         arguments:
             - "@tavy315_sylius_quotes.repository.customer_quote"
+            - "@tavy315_sylius_quotes.repository.product"
+            - "@sylius.context.shopper"
             - "@security.token_storage"
         class: Tavy315\SyliusQuotesPlugin\Context\QuoteContext
         public: true
@@ -15,9 +20,8 @@ services:
     tavy315_sylius_quotes.controller.action.list_quote_products:
         arguments:
             - "@tavy315_sylius_quotes.context.quote"
-            - "@tavy315_sylius_quotes.repository.product"
             - "@twig"
-            - "@sylius.context.shopper"
+            - "%tavy315_sylius_quotes_product_limit%"
         class: Tavy315\SyliusQuotesPlugin\Controller\Action\ListQuoteProductsAction
         tags:
             - { name: controller.service_arguments }
