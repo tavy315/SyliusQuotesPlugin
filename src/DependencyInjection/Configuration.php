@@ -10,7 +10,6 @@ use Sylius\Component\Resource\Factory\Factory;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Tavy315\SyliusQuotesPlugin\Entity\CustomerQuote;
-use Tavy315\SyliusQuotesPlugin\Entity\CustomerQuoteInterface;
 use Tavy315\SyliusQuotesPlugin\Form\Type\CustomerQuoteType;
 use Tavy315\SyliusQuotesPlugin\Repository\CustomerQuoteRepository;
 
@@ -40,7 +39,6 @@ final class Configuration implements ConfigurationInterface
                                         ->scalarNode('controller')->defaultValue(ResourceController::class)->cannotBeEmpty()->end()
                                         ->scalarNode('factory')->defaultValue(Factory::class)->cannotBeEmpty()->end()
                                         ->scalarNode('form')->defaultValue(CustomerQuoteType::class)->cannotBeEmpty()->end()
-                                        ->scalarNode('interface')->defaultValue(CustomerQuoteInterface::class)->cannotBeEmpty()->end()
                                         ->scalarNode('model')->defaultValue(CustomerQuote::class)->cannotBeEmpty()->end()
                                         ->scalarNode('repository')->defaultValue(CustomerQuoteRepository::class)->cannotBeEmpty()->end()
                                     ->end()

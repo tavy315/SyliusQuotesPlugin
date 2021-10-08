@@ -21,7 +21,7 @@ tavy315_sylius_quotes_admin_api_customer_quote_delete:
     path: /customers/{customer}/quotes/{documentNo}
     methods: [ DELETE ]
     defaults:
-        _controller: "tavy315_sylius_quotes.controller.customer_quote:deleteAction"
+        _controller: "tavy315_sylius_quotes.controller.customer_quote::deleteAction"
         _sylius:
             csrf_protection: false
             repository:
@@ -34,7 +34,7 @@ tavy315_sylius_quotes_admin_api_customer_quote_update:
     path: /customers/{customer}/quotes/{documentNo}
     methods: [ PATCH, PUT ]
     defaults:
-        _controller: "tavy315_sylius_quotes.controller.customer_quote:updateAction"
+        _controller: "tavy315_sylius_quotes.controller.customer_quote::updateAction"
         _sylius:
             criteria:
                 customer: $customer
